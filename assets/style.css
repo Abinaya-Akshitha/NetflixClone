@@ -1,135 +1,234 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'poppins',sans-serif;
     box-sizing: border-box;
 }
-
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #111;
+    background: #000;
+    color: #fff;
 }
-
-.rowposter{
+.header{
     width: 100%;
-    object-fit: contain;
-    max-height: 100px;
-    margin-right: 10px;
-    transition: transform 450ms;
-}
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8%;
+    position: relative;
+}   
 
-.rowposters{
+nav{
     display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo{
+    width: 150px;
+    cursor: pointer;
+}
+nav button{
+    border: 0;
+    outline: 0;
+    background: #db0001;
+    color: #fff;
+    padding: 7px 20px;
+    font-size: 12px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.language-btn{
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid#fff;
+    padding: 7px 10px;
+}
+.language-btn img{
+    width: 10px;
+    margin-left: 10px;
+
+}
+
+.header-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    margin-top: 100px;
+}
+
+.header-content h1{
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 600;
+    max-width: 650px;
+}
+.header-content h3{
+    font-weight: 400;
+    margin-bottom: 20px;
+
+}
+.email-signup{
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.email-signup input{
+    flex: 1;
+    border: 0;
+    outline: 0;
+    margin-left: 20px;
+}
+
+.email-signup button{
+    background: #db0001;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 15px 30px;
+}
+
+.features{
+    padding: 50px 12%;
+    font-size: 22px;
+}
+.row{
+    display: flex;
+    width: 100;
+    align-items: center;
+    flex-wrap:wrap;
+    padding: 50px 0;
+}
+
+.text-col{
+    flex-basis: 50%;
+    margin-bottom: 20px;
+}
+
+.img-col{
+    flex-basis: 50%;
+    margin-bottom: 20px;
+}
+.img-col img{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+.features h2{
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.faq{
+    padding: 10px 12%;
+    text-align: center;
+    font-size: 18px;
+}
+.faq h2{
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.accordian{
+    margin: 60px auto;
+    width: 100%;
+    max-width: 750px;
+}
+.accordian li{
+    list-style: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.accordian li label{
+    display: flex;
+    align-items: center;
     padding: 20px;
+    font-size: 18px;
+    font-weight: 500px;
+    background: #303030;
+    margin-bottom: 2px;
+    cursor: pointer;
+    position: relative;
 }
-
-.rowposter:hover{
-    transform: scale(1.08);
+label::after{
+    content: '+';
+    font-size: 34px;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.5s;
 }
-
-.rowposters::-webkit-scrollbar{
+input[type="radio"]{
     display: none;
 }
-
-.rowposterLarge{
-    max-height: 250px;
+.accordian .content{
+    background: #303030;
+    text-align: left;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s,padding 0.5s;
+}
+.accordian input[type="radio"]:checked + label + .content{
+    max-height: 600px;
+    padding: 30px 20px;
+}
+.accordian input[type="radio"]:checked + label::after{
+    transform: rotate(135deg);
+} 
+.faq.email-signup{
+    max-width: 600px;
+    margin: 20px auto 60px;
+}
+.faq small{
+    font-size: 13px;
 }
 
-.rowposterLarge:hover{
-    transform: scale(1.09);
+.footer{
+    padding: 50px 15% 10px;
+    border-top: 6px solid #333;
+    color: #777;
 }
-
-.row{
-    width: 100%;
-    line-height: 30px;
-    padding-left: 50px;
-    margin-top: 30px;
-    color: white;
-    margin-left: 20px;
-    max-height: 250px;
+.footer h2{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 30px;
 }
-
-.banner{
-    background-image: url('images/banner.jpeg');
-    background-size: cover;
-    background-position: center center;
-    color: white;
-    object-fit: contain;
-    height: 448px;
+.footer .col{
+    flex-basis: 25%;
+    flex-grow: 1;
+    margin-bottom: 20px;
 }
-
-.banner__contents{
-    margin-left: 30px;
-    padding-top: 140px;
-    height: 190px;
+.footer .col a{
+    display: block;
+    text-decoration: none;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
-
-.banner__title{
-    font-size: 3rem;
-    font-weight: 800;
-    padding-bottom: 0.3rem;
+.footer .row{
+    align-items: flex-start;
+    padding: 10px 0;
 }
-
-.banner__description{
-    width: 45rcm;
-    line-height: 1.3;
-    padding-top: 1rem;
-    font-size: 0.8rem;
-    max-width: 360px;
-    height: 180px;
+.footer .language-btn{
+    color: #fffffff4;
+    padding: 10px 20px;
+    border-radius: 3px;
 }
-
-.banner__button{
-    cursor: pointer;
-    color: white;
-    outline: none;
-    border: none;
-    font-weight: 700;
-    border-radius: 0.2vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    background-color: rgba(51, 51, 51, 51);
-
-}
-
-.banner__button:hover{
-    color: black;
-    background-color: white;
-    transition: all 0.2s;
-}
-
-.banner--fadeBottom{
-    margin-top: 145px;
-    height: 7.4rem;
-    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),black);
-}
-
-.nav__logo{
-    width: 80px;
-    object-fit: contain;
-}
-
-.nav__avatar{
-    width: 30px;
-    object-fit: contain;
-}
-
-.nav{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    z-index: 1;
-    transition-timing-function: ease-in;
-    transition: all  0.5s;
-}
-
-.nav__black{
-    background-color: black;
+.copyright-txt{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
